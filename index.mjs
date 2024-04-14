@@ -10,7 +10,7 @@ const client = await createClient({
   });
 
   // Feteches a secret.
-const secret = await client.secrets.resolve();
+const secret = await client.secrets.resolve("op://my-app/openai-key/credential");
 
 // Creates an OpenAI instance.
 const openai = new OpenAI({
@@ -20,7 +20,7 @@ const openai = new OpenAI({
 // Sends the API request.
 async function main() {
       const completion = await openai.chat.completions.create({
-        messages: [{ role: "user", content: "What is 1Password?" }],
+        messages: [{ role: "user", content: "Who is Yoda?" }],
         model: "gpt-3.5-turbo",
         temperature: 0,
         max_tokens: 1000,
